@@ -17,7 +17,8 @@ namespace BL
 
         public override int GetTotalPrice()
         {
-            return (base.ProductsCount["A"] / 3) * base.PromotionPrice + (base.ProductsCount["A"] % 3 * Price);
+            var totalPrice = (base.ProductsCount["A"] / 3) * base.PromotionPrice + (base.ProductsCount["A"] % 3 * Price);
+            return totalPrice;
         }
     }
 }

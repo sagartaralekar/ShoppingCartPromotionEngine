@@ -38,7 +38,7 @@ namespace BL
                     case "b":
                         if (productsCount.ContainsKey("B"))
                         {
-                            productsCount["B"] = productsCount["A"] + 1;
+                            productsCount["B"] = productsCount["B"] + 1;
                         }
                         else
                         {

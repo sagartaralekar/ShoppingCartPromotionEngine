@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.PromotionDetails
+namespace BL
 {
-    public class CPromotion : Promotion
+    public class CDPromotion : Promotion
     {
-        public CPromotion(Order order)
+        public CDPromotion(Order order)
         {
             base.OrderDetails = order;
             base.PromotionPrice = 45;
@@ -18,18 +18,24 @@ namespace BL.PromotionDetails
         {
             int totalPriceofCD = 0;
 
-            if (base.ProductsCount["C"] > 0 && base.ProductsCount["D"] > 0)
+            var productCount = base.ProductsCount;
+
+            if (productCount.ContainsKey("C") && productCount.ContainsKey("D") 
+                && productCount["C"] > 0 && productCount["D"] > 0)
             {
-                while (base.ProductsCount["C"] > 0 && base.ProductsCount["D"] > 0)
+                while (productCount["C"] > 0 && productCount["D"] > 0)
                 {
                     totalPriceofCD += 30;
-                    base.ProductsCount["C"]--;
-                    base.ProductsCount["D"]--;
+                    productCount["C"] = productCount["C"] -1;
+                    productCount["D"] = productCount["D"] - 1;
                 }
             }
 
-            int totalPriceofC = (base.ProductsCount["C"] * 20);
-            int totalPriceofD = (base.ProductsCount["D"] * 15);
+            if (productCount.ContainsKey("C"))
+                totalPriceofCD += (productCount["C"] * 20);
+
+            if(productCount.ContainsKey("D"))
+                totalPriceofCD += (productCount["D"] * 15);
 
             return totalPriceofCD;
         }
