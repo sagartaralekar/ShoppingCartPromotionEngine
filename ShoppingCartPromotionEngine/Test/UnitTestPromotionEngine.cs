@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Test
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestPromotionEngine
     {
         [TestMethod]
         public void ScenarioA()
