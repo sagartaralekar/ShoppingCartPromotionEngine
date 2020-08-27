@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.Model
+namespace BL
 {
     public class Order
     {
         public int OrderID { get; set; }
         public List<Product> Products { get; set; }
+        public List<Promotion> PromotionList { get; set; }
 
         public Order(int _oid, List<Product> _prods)
         {
@@ -30,23 +31,27 @@ namespace BL.Model
 
             foreach (Product pr in Products)
             {
-                if (pr.Id == "A" || pr.Id == "a")
+                switch (pr.Id)
                 {
-                    counterofA = counterofA + 1;
-                }
-                if (pr.Id == "B" || pr.Id == "b")
-                {
-                    counterofB = counterofB + 1;
-                }
-                if (pr.Id == "C" || pr.Id == "c")
-                {
-                    CounterofC = CounterofC + 1;
-                }
-                if (pr.Id == "D" || pr.Id == "d")
-                {
-                    CounterofD = CounterofD + 1;
+                    case "A":
+                    case "a":
+                        counterofA += 1;
+                        break;
+                    case "B":
+                    case "b":
+                        counterofB += 1;
+                        break;
+                    case "C":
+                    case "c":
+                        CounterofC += 1;
+                        break;
+                    case "D":
+                    case "d":
+                        CounterofD += 1;
+                        break;
                 }
             }
+
             int totalPriceofA = (counterofA / 3) * 130 + (counterofA % 3 * priceofA);
             int totalPriceofB = (counterofB / 2) * 45 + (counterofB % 2 * priceofB);
 

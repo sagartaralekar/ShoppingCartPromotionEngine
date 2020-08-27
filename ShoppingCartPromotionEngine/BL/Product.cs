@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.Model
+namespace BL
 {
     public class Product
     {
         public string Id { get; set; }
-        public decimal Price { get; set; }
+        public int Price { get; set; }
 
 
         public Product(string id)
@@ -18,19 +18,19 @@ namespace BL.Model
             switch (id)
             {
                 case "A":
-                    this.Price = 50m;
+                    this.Price = 50;
 
                     break;
                 case "B":
-                    this.Price = 30m;
+                    this.Price = 30;
 
                     break;
                 case "C":
-                    this.Price = 20m;
+                    this.Price = 20;
 
                     break;
                 case "D":
-                    this.Price = 15m;
+                    this.Price = 15;
                     break;
             }
         }
